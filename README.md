@@ -8,9 +8,8 @@
 
 ## Development requirements
 
-* Node.JS
-* npm
-* yarn (Opitional)
+* [Node.JS & npm](https://nodejs.org/en/download/)
+* [Yarn](https://yarnpkg.com/getting-started/install) (Opitional)
 
   
 
