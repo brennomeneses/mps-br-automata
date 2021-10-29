@@ -1,0 +1,15 @@
+{
+  "devDependencies": {
+    "electron": "15.3.0"
+  },
+  "name": "mps-br-automata-ts",
+  "version": "1.0.0",
+  "description": "MPS-BR Automataition",
+  "main": "main.ts",
+  "repository": "https://github.com/brennomeneses/mps-br-automata.git",
+  "author": "ScooterClub",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron ."
+  }
+}
