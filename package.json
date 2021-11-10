@@ -24,6 +24,9 @@
   },
   "config": {
     "forge": {
+      "electronPackagerConfig": {
+        "icon": "./assets/components/logo.png"
+      },
       "packagerConfig": {},
       "makers": [
         {

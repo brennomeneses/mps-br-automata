@@ -4,6 +4,7 @@ function createWindow() {
     const win = new BrowserWindow({
         width: 800,
         height: 600,
+        icon: './assets/components/logo.png'
     })
 
     win.loadFile('index.html')
