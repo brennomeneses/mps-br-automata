@@ -6,6 +6,38 @@ $(document).ready(function(){
 
 });
 
+var perguntasUC = [
+  "Todos os requisitos funcionais estão sendo incorporados no diagrama?",
+  "O diagrama possuí atores que se encaixam com os casos de uso?",
+  "Os casos de uso estão numerados corretamente?",
+  "As Interações de Extend estão representadas corretamente?",
+  "As Interações de Include estão representadas corretamente?",
+  "A relação de herança está representada corretamente?",
+  "Os atores estão identificados?",
+  "Os casos de uso estão no infinitivo?",
+  "Nenhum caso de uso está sem conexão (com um ator ou outro caso de uso)",
+  "O diagrama representa o que foi planejado?"
+]
+var responsavelUC = [];
+var observaçãoUC = [];
+var quantidadeSimUC = [];
+
+var perguntasRQ = [
+  "Todos os requisitos possuem identificação individual?",
+  "O solicitante do requisito é apresentado?",
+  "O Nome e versão do sistema são apresentados?",
+  "Os requisitos são classificados em niveis de prioridades?",
+  "Os requisitos não são ambiguos",
+  "Os requisitos não passam informações repetidas",
+  "Os requisitos são classificados em niveis de prioridades?",
+  "Os requisitos são rastreaveis?",
+  "Os requisitos cumprem o que é esperado do projeto?",
+  "Os requisitos estão no infinitivo?"
+]
+var responsavelRQ = [];
+var observaçãoRQ = [];
+var quantidadeSimRQ = [];
+
 function clearScreen(){
   $(".screen").html("");
 }
@@ -27,30 +59,19 @@ function loadPage(){
 
   $("#questionUC").click(function(){
     clearScreen();
-    generateQuestion(0, perguntasUC);
+    generateQuestion(0, perguntasUC, "CASO DE USO", responsavelUC, observaçãoUC, quantidadeSimUC);
+  });
+
+  $("#questionRQ").click(function(){
+    clearScreen();
+    generateQuestion(0, perguntasRQ, "REQUISITOS", responsavelRQ, observaçãoRQ, quantidadeSimRQ);
   });
 }
 
-var perguntasUC = [
-  "Todos os requisitos funcionais estão sendo incorporados no diagrama",
-  "O diagrama possuí atores que se encaixam com os casos de uso",
-  "Os casos de uso estão numerados corretamente",
-  "As Interações de Extend estão representadas corretamente",
-  "As Interações de Include estão representadas corretamente",
-  "A relação de herança está representada de forma correta",
-  "Os atores são identificados",
-  "Os casos de uso estão no infinitivo",
-  "Nenhum caso de uso está sem conexão<br>(com um ator ou outro caso de uso)",
-  "O diagrama representa o que foi planejado"
-]
-var responsavelUC = [];
-var observaçãoUC = [];
-var quantidadeSimUC = [];
-
-function generateQuestion(posicao, array){
+function generateQuestion(posicao, arrayPerguntas, nome, arrayResponsavel, arrayObservacao, arrayOutput){
   var val = '';
-  val += '<div class="question center"><h1 class="branco textoCentralizado fontPoppins">CASO DE USO</h1>';
-  val += '<h2 class="branco textoCentralizado fontPoppins">' + perguntasUC[posicao] + '?</h2>';
+  val += '<div class="question center"><h1 class="branco textoCentralizado fontPoppins">' + nome + '</h1>';
+  val += '<h2 class="branco textoCentralizado fontPoppins">' + arrayPerguntas[posicao] + '</h2>';
   val += '<div class="botaoQuestao"><div class="massive ui buttons">';
   val += '<button id="questionBTNYes" class="ui positive button">Sim</button>';
   val += '<div class="or" data-text="ou"></div>';
@@ -58,13 +79,13 @@ function generateQuestion(posicao, array){
   val += '</div></div><br><form>';
   val += '<div class="inputQuestion">';
   val += '<div class="ui fluid labeled input mx-auto"><div class="ui label">Responsável</div>';
-  val += '<input id="inputResponsavel" type="text" required placeholder="Favor inserir o responsável"></div></div>';
+  val += '<input id="inputResponsavel" type="text" placeholder="Favor inserir o responsável"></div></div>';
   val += '<div class="inputQuestion"><div class="ui fluid labeled input mx-auto"><div class="ui label">Observação</div>';
   val += '<input id="inputObservacao" type="text" placeholder="Insira a observação (Opcional)"></div></div>';
   val += '<button id="mainMenu" class="medium ui left floated labeled icon button">';
   val += '<i class="left arrow icon"></i>Menu Principal</button>';
 
-  if(posicao == array.length-1){
+  if(posicao == arrayPerguntas.length-1){
     val += '<button type="submit" id="finalizarQuestionario" class="medium ui right floated labeled icon button">';
     val += '<i class="right arrow icon"></i>Finalizar</button></form></div>';
   }else{
@@ -72,28 +93,13 @@ function generateQuestion(posicao, array){
     val += '<i class="right arrow icon"></i>Próxima Questão</button></form></div>';
   }
   updateScreen(val);
-  gerarBotoes(quantidadeSimUC, posicao);
 
-  $("#gerarNovaQuestao").click(function(){
-    responsavelUC[posicao] = $("#inputResponsavel").val();
-    observaçãoUC[posicao] = $("#inputObservacao").val();
-    console.log(responsavelUC);
-    console.log(observaçãoUC);
-    console.log(quantidadeSimUC);
-    clearScreen();
-    generateQuestion(posicao+1, perguntasUC);
-
-  });
-}
-
-function gerarBotoes(arraySaida, posicao){
   $("#mainMenu").click(function(){
-    clearScreen();
-    loadPage();
+    window.location.href("index.html");
   });
 
   $("#questionBTNYes").click(function(){
-    arraySaida[posicao] = 1;
+    arrayOutput[posicao] = 1;
     $("#questionBTNYes").addClass('active');
     $("#questionBTNYes").removeClass('positive');
     $("#questionBTNNo").addClass('red');
@@ -101,9 +107,17 @@ function gerarBotoes(arraySaida, posicao){
   });
 
   $("#questionBTNNo").click(function(){
-    arraySaida[posicao] = 0;
+    arrayOutput[posicao] = 0;
     $("#questionBTNYes").addClass('positive');
     $("#questionBTNNo").addClass('active');
     $("#questionBTNNo").removeClass('red');
+  });
+
+  $("#gerarNovaQuestao").click(function(){
+    arrayResponsavel[posicao] = $("#inputResponsavel").val();
+    arrayObservacao[posicao] = $("#inputObservacao").val();
+    clearScreen();
+    generateQuestion(posicao+1, arrayPerguntas, nome, arrayResponsavel, arrayObservacao, arrayOutput);
+
   });
 }
