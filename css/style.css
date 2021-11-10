@@ -1,0 +1,32 @@
+:root{
+  --fundoMenu: #8E44AD;
+  --fundoScreen: #9B59B6;
+  --fundoPendente: white;
+}
+.branco{
+  color: white;
+}
+.center{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+.textoCentralizado{
+  text-align: center;
+}
+.mx-auto{
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+}
+body{
+  background-color: var(--fundoPendente);
+}
+div.screen{
+  border-radius: 35px 15px 35px 15px;
+  width: 98%;
+  height: 98%;
+  background-color: var(--fundoScreen);
+}
