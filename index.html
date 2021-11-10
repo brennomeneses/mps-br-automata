@@ -10,10 +10,49 @@
     crossorigin="anonymous"></script>
     <script src="assets/semantic.min.js"></script>
     <script src="js/mainscript.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <body>
         <div class="screen center">
-
+          <div class="question center">
+            <h1 class="branco textoCentralizado fontPoppins">CASO DE USO</h1>
+            <h2 class="branco textoCentralizado fontPoppins">Nenhum caso de uso está sem conexão (com um ator ou outro caso de uso)</h2>
+            <div class="botaoQuestao">
+              <div class="massive ui buttons">
+                <button id="questionBTNYes" class="ui positive button">Sim</button>
+                <div class="or" data-text="ou"></div>
+                <button id="questionBTNNo" class="ui red button">Não</button>
+              </div>
+            </div><br>
+            <form>
+              <div class="inputQuestion">
+                <div class="ui fluid labeled input mx-auto">
+                  <div class="ui label">
+                    Responsável
+                  </div>
+                  <input type="text" required placeholder="Favor inserir o responsável">
+                </div>
+              </div>
+              <div class="inputQuestion">
+                <div class="ui fluid labeled input mx-auto">
+                  <div class="ui label">
+                    Observação
+                  </div>
+                  <input type="text" placeholder="Insira a observação (Opcional)">
+                </div>
+              </div>
+              <button id="mainMenu" class="medium ui left floated labeled icon button">
+                <i class="left arrow icon"></i>
+                Menu Principal
+              </button>
+              <button type="submit" class="medium ui right floated labeled icon button">
+                <i class="right arrow icon"></i>
+                Próxima Questão
+              </button>
+            </form>
+          </div>
         </div>
     </body>
 </html>

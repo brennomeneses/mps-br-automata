@@ -1,12 +1,10 @@
 $(document).ready(function(){
 
-  loadPage();
+  //loadPage();
 
-  $("#startBtn").click(function(){
-    var val = "";
+  $("#mainMenu").click(function(){
     clearScreen();
-    val += '<img class="center" src="https://upload.wikimedia.org/wikipedia/pt/7/71/Sour_-_Olivia_Rodrigo.png">';
-    updateScreen(val);
+    loadPage();
   });
 
   $('.ui.checkbox').checkbox();
@@ -22,9 +20,13 @@ function updateScreen(val){
 
 function loadPage(){
   var val = '<div class="pageContent center">';
-  val += '<h1 class="textoCentralizado branco">Checklist<br>Qualidade de Software</h1>';
-  val += '<br><div id="startBtn" class="massive standard mx-auto ui animated button" tabindex="0">';
-  val += '<div class="visible content">Iniciar</div>';
-  val += '<div class="hidden content"><i class="chevron circle right icon"></i><div><div><div>';
+  val += '<h1 class="textoCentralizado branco fontPoppins">Seja Bem Vindo!<br><br>Escolha um checklist<br>para iniciar:</h1><br>';
+  val += '<div>';
+  val += '<div class="huge ui buttons">';
+  val += '<button id="questionBTNYes" class="ui button">Caso de Uso</button>';
+  val += '<div class="or" data-text="ou"></div>';
+  val += '<button id="questionBTNNo" class="ui button">Requisitos</button></div></div>'
+  val += '<h3 class="textoCentralizado branco fontPoppins">Desenvolvido por:<br><br>Anderson Neumann<br>Brenno Araujo<br>Eduardo Ribeiro<br><br>Qualidade de Software 2021</h3>'
+  val += '<div>';
   updateScreen(val);
 }

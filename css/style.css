@@ -23,10 +23,21 @@
 }
 body{
   background-color: var(--fundoPendente);
+  font-family: 'Poppins', sans-serif;
+}
+.fontPoppins{
+  font-family: 'Poppins', sans-serif;
 }
 div.screen{
   border-radius: 35px 15px 35px 15px;
   width: 98%;
   height: 98%;
   background-color: var(--fundoScreen);
+}
+.botaoQuestao{
+  width: 225px;
+  margin: 0 auto;
+}
+.inputQuestion{
+  margin-top: 10px;
 }
