@@ -1,6 +1,9 @@
 :root{
   --fundoMenu: #8E44AD;
   --fundoScreen: #8881C6;
+  --fundoVerde: #00b894;
+  --fundoAmarelo: #fdcb6e;
+  --fundoVermelho: #d63031;
   --fundoPendente: white;
 }
 .branco{
@@ -21,6 +24,9 @@
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
 }
+.marginAuto{
+  margin: 0 auto;
+}
 body{
   background-color: var(--fundoPendente);
   font-family: 'Poppins', sans-serif;
@@ -40,4 +46,10 @@ div.screen{
 }
 .inputQuestion{
   margin-top: 10px;
+}
+.resultTable{
+  width: 80%;
+}
+.topoLinha{
+  font-size: 20px;
 }
